@@ -1,5 +1,5 @@
-let btn = document.querySelector("#btn");
+let logo = document.querySelector("#logo");
 let sidebar = document.querySelector(".sidebar");
-btn.onclick = function () {
+logo.onclick = function () {
   sidebar.classList.toggle("active");
 };
