@@ -1,5 +1,4 @@
-let logo = document.querySelector("#logo");
-let sidebar = document.querySelector(".sidebar");
-logo.onclick = function () {
+function toggleSidebar() {
+  let sidebar = document.querySelector(".sidebar");
   sidebar.classList.toggle("active");
-};
+}

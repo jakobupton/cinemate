@@ -1,10 +1,10 @@
 :root {
-    --primary-color: #ff4a57;
-    --secondary-color: #151f30;
-    --text-color: #ffffff;
-    --text-light: #b3b3b3;
-    --border-color: #2c2c2c;
-    --background-color: #131720;
+    --primary-color: #192F55;
+    --secondary-color: #2D78DC;
+    --accent-color: #63E3FF;
+    --text-color: #FFF;
+    --background-color-darker: #131720;
+    --background-color: #151F30
 }
 
 * {
@@ -34,7 +34,6 @@
 .user-img {
     width: 50px;
     border-radius: 100%;
-    border: 1px solid #fff;
 }
 
 .sidebar {
@@ -45,7 +44,8 @@
     width: 80px;
     padding: 0.4rem 0.8rem;
     transition: all 0.5s ease;
-    background-color: #151f30;
+    background-color: var(--background-color);
+    z-index: 1;
 }
 
 .sidebar.active~.main-content { /* adjust content to left of sidebar */
@@ -58,7 +58,6 @@
 }
 
 .sidebar .top .logo {
-    color: var(--text-color);
     display: flex;
     width: 100%;
     align-items: center;
@@ -67,10 +66,9 @@
 }
 
 .sidebar .top .logo img {
-    height: 30px;
+    height: 35px;
     position: absolute;
     top: 30px;
-    left: 20px;
 }
 
 .sidebar p {
@@ -90,9 +88,14 @@
     opacity: 1;
     transition: all 0.5s;
 }
+/* 
+.sidebar ul {
+    background-color: var(--background-color);
+} */
 
 .sidebar ul li {
-    position: relative;
+    display: relative;
+    align-items: center;
     list-style-type: none;
     margin: 1rem auto;
     line-height: 3rem;
@@ -100,20 +103,24 @@
 
 .sidebar ul li a {
     display: flex;
-    align-items: center;
     text-decoration: none;
-    margin-left: 5px;
+    border-radius: 16px;
 }
 
 .sidebar ul li a:hover {
-    background-color: var(--background-color);
+    background-color: var(--primary-color);
 }
 
 .sidebar ul li a img {
     align-items: center;
-    height: 30px;
+    height: 50px;
     transition: all 0.5s ease;
     filter: invert(1);
+}
+
+.sidebar.active ul li a img {
+    align-items: center;
+    justify-content: center;
 }
 
 .sidebar .nav-item {
@@ -126,11 +133,17 @@
 
 .main-content {
     position: relative;
-    background-color: var(--background-color);
+    background-color: var(--background-color-darker);
     min-height: 100vh;
-    top: 0;
+    top: 80px;
     left: 80px;
     transition: all 0.5s ease;
     width: calc(100% - 80px);
     padding: 1rem;
+}
+
+
+.main-content .center{
+    display: flex;
+    justify-content: center;
 }

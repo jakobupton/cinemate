@@ -22,7 +22,7 @@
         <div class="sidebar">
             <div class="top">
                 <div class="logo">
-                    <img src="img/icons/c_logo.png" alt="Cinemate C"class="cinemate-logo" id="logo"></img>
+                    <img src="img/icons/c_logo.png" alt="Cinemate C"class="cinemate-logo" onclick="toggleSidebar()"></img>
                     <img src="img/icons/cinemate.png" alt="Cinemate Title" class="cinemate-name"></img>
                 </div>
             </div>
@@ -67,8 +67,11 @@
 
         <div class="main-content">
             <h1>test</h1>
-            <p> test test</p>
+            <p>test test</p>
+            <div class="center">
+                <p><?php echo "Center Div Test" ?></p>
+            </div>
         </div>
+        <script src="scripts/main.js"></script>
     </body>
-    <script src="scripts/main.js"></script>
 </html>
