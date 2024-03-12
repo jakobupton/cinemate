@@ -24,22 +24,6 @@
     background-color: var(--background-color);
 }
 
-/* .user {
-    display: flex;
-    align-items: center;
-}
-
-.user p {
-    color: var(--text-color);
-    opacity: 1;
-    margin-left: 1rem;
-}
-
-.user-img {
-    width: 50px;
-    border-radius: 100%;
-} */
-
 .sidebar {
     position: absolute;
     height: 100%;
@@ -156,8 +140,6 @@ p {
 }
 
 .movie-info-left #movie-cover{
-    width: 100%;
-    height: 100;
     border-radius: var(--border-radius);
     border: 2px solid white;
 }
@@ -196,14 +178,14 @@ p {
 }
 
 .movie-title{
-    width: 100%;
+    width: 40%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.movie-info-right #movie-showing-type{
-    margin-bottom: auto;
+.movie-info-right .movie-showing-type{
+    margin-top: auto;
 }
 
 .movie-seating .movie-screen {
@@ -226,10 +208,13 @@ p {
 
 
 .movie-seat-rows{
+    flex-direction: column;
+}
+
+.movie-seat-rows p{
     color: var(--text-color-dark);
     font-weight: 500;
     font-size: 14px;
-    flex-direction: column;
 }
 
 .movie-seating{
@@ -384,7 +369,7 @@ p {
 .dotted-line{
     border: none;
     height: 1px;
-    background: repeating-linear-gradient(90deg,var(--text-color-light),var(--text-color-light) 6px,transparent 8px,transparent 12px);
+    background: repeating-linear-gradient(90deg, white, white 6px,transparent 8px,transparent 12px);
 }
 
 hr {
@@ -428,6 +413,16 @@ hr {
     border-color: transparent;
 }
 
+.customer-info-buttons #cancel:hover{
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.customer-info-buttons #cancel:active{
+    background-color: var(--secondary-color);
+}
+
+
 .customer-info-buttons #confirm{
     background-image: linear-gradient(#002c67, var(--secondary-color));
     background-color: var(--secondary-color);
@@ -436,5 +431,17 @@ hr {
     height: 3em;
     width: 60%;
     border-color: transparent;
+    pointer-events: auto;
+}
+
+.customer-info-buttons #confirm:hover{
+    background-image: none;
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.customer-info-buttons #confirm:active{
+    background-image: none;
+    background-color: var(--secondary-color);
 }
 
