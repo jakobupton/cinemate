@@ -125,8 +125,7 @@ p {
 .movie-info-top{
     display: flex;
     flex-direction: column;
-    margin-left: 10px;
-    margin-bottom: 4px;
+    margin-bottom: 1em;
     flex-wrap: wrap;
 }
 
@@ -136,18 +135,20 @@ p {
 }
 
 .movie-info-left{
-    width: 30%;
+    width: 25%;
 }
 
 .movie-info-left #movie-cover{
     border-radius: var(--border-radius);
     border: 2px solid white;
+    width: auto;
+    height: 100%;
 }
 
 .movie-info-right {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 75%;
 }
 
 .movie-info-right .movie-genre *{
@@ -161,6 +162,8 @@ p {
     margin-left: 0.5em;
     background-color: var(--primary-color);
     max-height: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 
@@ -191,24 +194,20 @@ p {
 .movie-seating .movie-screen {
     justify-content: center;
     align-items: center;
-    width: 100%;
 }
 .movie-seating .movie-screen .box{
     width: 100%;
-    height: 100%;
-    border: 2px solid var(--primary-color);
-    border-radius: 36px;
-    margin: auto;
-    margin-bottom: 2em;
-    margin-top: 2em;
-    padding: 1em;
-    justify-content: center;
-    align-items: center;
+    height: 10em;
+    background-color: var(--primary-color);
+    margin-bottom: 1em;
 }
 
 
 .movie-seat-rows{
-    flex-direction: column;
+    display: inline-grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+    align-items: center;
 }
 
 .movie-seat-rows p{
@@ -221,47 +220,21 @@ p {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* border: 2px solid red; */
-    height: 70%;
+    height: 100%;
 }
 
 .movie-seats-section{
-    border: 2px solid green;
-    width: 60%;
+    width: 50%;
     height: 100%;
     justify-content: space-between
 }
 
-.movie-seats-left{
-    width: 25%;
-    height: 100%;
-    border: 2px solid red;
-}
-.movie-seats-center{
-    width: 35%;
-    height: 100%;
-    border: 2px solid orange;
-}
-.movie-seats-right{
-    width: 25%;
-    height: 100%;
-    border: 2px solid yellow;
-}
-
 .movie-seat-rows{
-    width: 10%;
-    height: 100%;
-    border: 2px solid white;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 2em;
-    padding-top: 2em;
+    display: grid;
 }
 
 .content-left{
     width: 70%;
-    height: 100%;
-    border: 2px solid yellow;
 }
 
 .content-right *{
@@ -271,11 +244,10 @@ p {
 .content-right{
     background-color: var(--background-color);
     width: 30%;
-    height: 100%;
     border-radius: 36px;
     flex-direction: column;
     padding: 1em;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 
@@ -288,7 +260,7 @@ p {
     height: 2em;
     background-color: var(--primary-color);
     margin-right: 1em;
-    width: 40px;
+    padding: 1em;
     align-items: center;
     justify-content: center;
     border-radius: 5px;
@@ -298,7 +270,6 @@ p {
     color: var(--accent-color);
     font-weight: bold;
 }
-
 
 
 .order-status{
@@ -336,7 +307,6 @@ p {
     border-radius: 10px;
     width: 100%;
     padding: 1.5rem;
-    justify-content: space-between;
 }
 
 .payment-select form{
@@ -346,6 +316,7 @@ p {
 .seating-legend {
     justify-content: space-between;
     width: 40%;
+    margin: auto;
 }
 
 .seating-legend .box{
@@ -383,7 +354,6 @@ hr {
 
 .customer-info form{
     flex-direction: column;
-    margin-top: 1em;
 }
 
 .customer-info input{
@@ -424,8 +394,8 @@ hr {
 
 
 .customer-info-buttons #confirm{
-    background-image: linear-gradient(#002c67, var(--secondary-color));
-    background-color: var(--secondary-color);
+    background: -webkit-linear-gradient(bottom, var(--secondary-color), var(--primary-color));
+    background: linear-gradient(to bottom, var(--secondary-color), var(--primary-color));
     color: white;
     border-radius: 10px;
     height: 3em;
@@ -445,3 +415,42 @@ hr {
     background-color: var(--secondary-color);
 }
 
+.seat{
+    background-color: var(--primary-color);
+    width: 1em;
+    height: 1em;
+    border-radius: 5px;
+}
+
+.movie-seats-side{
+    display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    width: 20%;
+}
+
+.movie-seats-center{
+    display: inline-grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    align-items: center;
+    width: 40%;
+}
+
+
+#A9, #A0{
+    opacity: 0;
+}
+
+[selected="true"]{
+    background-color: var(--accent-color);
+}
+
+[selected="false"]{
+    background-color: var(--primary-color);
+}
+
+[reserved="true"]{
+    background-color: white;s
+}
