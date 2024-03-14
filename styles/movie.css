@@ -1,0 +1,396 @@
+.main-content {
+    position: relative;
+    display: flex;
+    background-color: var(--background-color-darker);
+    top: var(--top-bar-thickness);
+    left: var(--sidebar-thickness);
+    width: calc(100vw - var(--sidebar-thickness) - var(--outer-side-edge-thickness));
+    height: calc(100vh - var(--top-bar-thickness) - var(--outer-side-edge-thickness));
+    padding: 2rem;
+    border-radius: var(--border-radius);
+}
+
+.main-content * {
+    background-color: var(--background-color-darker);
+    display: flex;
+}
+
+h1 {
+    font-size: 24px;
+    font-style: bold;
+    color: var(--text-color);
+
+}
+
+h2 {    
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--text-color);
+}
+
+h3{
+    background-color: var(--primary-color);
+    font-size: 20px;
+    font-weight: 400;
+}
+
+p {
+    font-size: 14px;
+    color: var(--text-color-light);
+}
+
+.main-content .content-left {
+    flex-direction: column;
+    margin-right: 30px; /* TODO Fix */
+}
+
+.movie-info-top{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+    flex-wrap: wrap;
+}
+
+.movie-info-top #movie-showtime{
+    font-size: 14px;
+    color: var(--text-color-light);
+}
+
+.movie-info-left{
+    width: 25%;
+}
+
+.movie-info-left #movie-cover{
+    border-radius: var(--border-radius);
+    border: 2px solid white;
+    width: auto;
+    height: 100%;
+}
+
+.movie-info-right {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+}
+
+.movie-info-right .movie-genre *{
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.movie-info-right .movie-genre{
+    border: 0.25em solid var(--primary-color);
+    border-radius: 20px;
+    margin-left: 0.5em;
+    background-color: var(--primary-color);
+    max-height: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+
+.movie-info-right .movie-rating{
+    font-size: 14px;
+    align-items: flex-start;
+    vertical-align: center;
+    margin-bottom: 1em;
+}
+
+.movie-info-right .movie-rating #star{
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5em;
+}
+
+.movie-title{
+    width: 40%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie-info-right .movie-showing-type{
+    margin-top: auto;
+}
+
+.movie-screen {
+    margin-top: 1em;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.movie-screen object{
+    width: 80%;
+    pointer-events: none;
+}
+
+.movie-seats-section{
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.movie-seat-rows{
+    display: inline-grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+    align-items: center;
+    height: 60%;
+}
+
+.movie-seat-rows p{
+    color: var(--text-color-dark);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.movie-seats-side{
+    display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    width: 20%;
+    height: 60%
+}
+
+.movie-seats-center{
+    display: inline-grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    align-items: center;
+    width: 40%;
+    height: 60%
+}
+
+.movie-seating{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+
+.movie-seat-rows{
+    display: grid;
+}
+
+.content-left{
+    width: 70%;
+}
+
+.content-right *{
+    background-color: var(--background-color);
+}
+
+.content-right{
+    background-color: var(--background-color);
+    width: 30%;
+    border-radius: 36px;
+    flex-direction: column;
+    padding: 1em;
+    justify-content: space-around;
+}
+
+
+.movie-wrapper{
+    width: 100%;
+    height: 30%;
+}
+
+
+.selected-seats{
+    min-height: 2em;
+    flex-wrap: wrap;
+}
+
+.selected-seats p{
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-bottom: 1em;
+    height: 1em;
+    background-color: var(--primary-color);
+    padding: 1em;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+
+.order-status{
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-status h3{
+    color: var(--secondary-color);
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.order-status p{
+    color: var(--text-color-yellow);
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.price-info{
+    flex-direction: column;
+}
+
+.price-item{
+    justify-content: space-between;
+}
+
+
+.payment-select-box *{
+    background-color: var(--background-color-darker);
+}
+
+.payment-select-box{
+    height: auto;
+}
+
+.payment-select {
+    flex-direction: column;
+    border-radius: 10px;
+    width: 100%;
+    padding: 1.5rem;
+}
+
+.payment-select form{
+    justify-content: space-between;
+}
+
+.seating-legend {
+    justify-content: space-between;
+    width: 40%;
+    margin: auto;
+}
+
+.seating-legend .box{
+    width: 1em;
+    height: 1em;
+    border-radius: 5px;
+}
+
+.seating-legend #available{
+    background-color: var(--primary-color);
+}
+
+.seating-legend #selected{
+    background-color: var(--accent-color);
+}
+
+.seating-legend #reserved{
+    background-color: white;
+}
+
+.dotted-line{
+    border: none;
+    height: 1px;
+    background: repeating-linear-gradient(90deg, white, white 6px,transparent 8px,transparent 12px);
+}
+
+hr {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.customer-info {
+    flex-direction: column;
+}
+
+.customer-info form{
+    flex-direction: column;
+}
+
+.customer-info input{
+    background-color: var(--background-color-darker);
+    color: white;
+    border-radius: 10px;
+    height: 3em;
+    border-color: transparent;
+}
+
+.customer-info-buttons{
+    justify-content: space-between;
+}
+
+.customer-info-buttons .btn{
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.customer-info-buttons #cancel{
+    background-color: var(--background-color-darker);
+    color: white;
+    border-radius: 10px;
+    height: 3em;
+    width: 30%;
+    border-color: transparent;
+}
+
+.customer-info-buttons #cancel:hover{
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.customer-info-buttons #cancel:active{
+    background-color: var(--secondary-color);
+}
+
+
+.customer-info-buttons #confirm{
+    background: -webkit-linear-gradient(bottom, var(--secondary-color), var(--primary-color));
+    background: linear-gradient(to bottom, var(--secondary-color), var(--primary-color));
+    color: white;
+    border-radius: 10px;
+    height: 3em;
+    width: 60%;
+    border-color: transparent;
+    pointer-events: auto;
+}
+
+.customer-info-buttons #confirm:hover{
+    background-image: none;
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.customer-info-buttons #confirm:active{
+    background-image: none;
+    background-color: var(--secondary-color);
+}
+
+.seat{
+    background-color: var(--primary-color);
+    width: 1em;
+    height: 1em;
+    border-radius: 5px;
+}
+#A-0, #A-10{
+    opacity: 0;
+}
+
+.seat:not(#A-0,#A-10):hover{
+    background-color: var(--accent-color);
+    cursor: pointer;
+}
+
+
+[selected="true"]{
+    background-color: var(--accent-color);
+}
+
+[selected="false"]{
+    background-color: var(--primary-color);
+}
+
+[reserved="true"]{
+    background-color: white;
+
+}
