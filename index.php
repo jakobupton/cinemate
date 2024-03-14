@@ -49,8 +49,10 @@
             </li>
          </ul>
       </div>
-      <?php
-         include("view/movie.php");
-      ?>
+      <div class="main-content">
+         <?php // Display content based on page here
+            include("view/movie.php");
+         ?>
+      </div>
    </body>
 </html>
