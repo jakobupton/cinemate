@@ -5,7 +5,7 @@ seats.forEach(seat => {
     if (seat.hasAttribute("reserved")) {
       return; // Don't toggle if reserved
     }
-    if (seat.id == "A-0" || seat.id == "A-10"){
+    if (seat.id == "A-0" || seat.id == "A-9"){
       return;
     }
     

@@ -1,9 +1,9 @@
 <head>
-    <link rel="stylesheet" href="styles/movie.css" />
+    <link rel="stylesheet" href="styles/tickets.css" />
 </head>
 <?php 
     $MovieName = "Spider-Man: Into the Spider-Verse";
-    $MovieCoverPath = "img/movies/spiderman_blue.jpg"; // Movie cover
+    $MovieCoverPath = "img/movies/spiderman.jpg"; // Movie cover
     $MovieDescription = "Teen Miles Morales becomes the Spider-Man of his universe and must join with five spider-powered individuals from other dimensions to stop a threat for all realities.";
     $MovieScreeningType = "Regular Screening";
     $MovieLocation = "Screen 3";
@@ -27,11 +27,11 @@
     <div class="content-left">
         <div class="movie-info-top">
             <h1>BOOK A SHOW</h1>
-            <p id="movie-showtime"><?php echo $MovieLocation . " | " . $MovieTime . " (" . $MovieDate . ")" ?></p>
+            <p id="movie-showtime"><p><?php echo $MovieLocation . " | " . $MovieTime . " (" . $MovieDate . ")" ?></p>
         </div>
         <div class="movie-wrapper">
             <div class="movie-info-left">
-                <img src="<?php echo $MovieCoverPath ?>" id="movie-cover"></img>
+                <img src="<?php echo $MovieCoverPath ?>" id="movie-cover" alt="<?php echo $MovieName?>"></img>
             </div>
             <div class="movie-info-right">
                 <div class="movie-info-right-top">
@@ -57,7 +57,7 @@
             </div>
         </div>
         <div class="movie-screen">
-            <object data="img/screen.svg"> </object>
+            <object data="img/screen.svg"></object>
         </div>
         <div class="movie-seating">
             <div class="movie-seats-section">
@@ -81,9 +81,15 @@
                     <?php 
                         for ($i = ord('A'); $i <= ord('G'); $i++){ 
                             $letter = chr($i);
-                            for ($j = 4; $j < 8; $j++) {
-                                echo "<div class='seat' id='" . $letter . "-" . $j . "'></div>";
-                            }       
+                            if($letter == 'A'){ //Probably a better way of doing this but oh well
+                                for ($j = 3; $j < 7; $j++){
+                                    echo "<div class='seat' id='" . $letter . "-" . $j . "'></div>";
+                                } 
+                            }else{
+                                for ($j = 4; $j < 8; $j++){
+                                    echo "<div class='seat' id='" . $letter . "-" . $j . "'></div>";
+                                }
+                            }     
                         }
                     ?>
                 </div>
@@ -91,9 +97,15 @@
                     <?php 
                         for ($i = ord('A'); $i <= ord('G'); $i++){ 
                             $letter = chr($i);
-                            for ($j = 8; $j < 11; $j++) {
-                                echo "<div class='seat' id='" . $letter . "-" . $j . "'></div>";
-                            }       
+                            if($letter == 'A'){ //Probably a better way of doing this but oh well
+                                for ($j = 7; $j < 10; $j++){
+                                    echo "<div class='seat' id='" . $letter . "-" . $j . "'></div>";
+                                } 
+                            }else{
+                                for ($j = 8; $j < 11; $j++){
+                                    echo "<div class='seat' id='" . $letter . "-" . $j . "'></div>";
+                                }
+                            }     
                         }
                     ?>
                 </div>
@@ -174,4 +186,4 @@
         </div>
     </div>
 </div>
-<script src="scripts/movie.js"></script>
+<script src="scripts/tickets.js"></script>

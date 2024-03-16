@@ -83,8 +83,12 @@
 	top: var(--top-bar-thickness);
 	left: var(--sidebar-thickness);
 	width: calc(100vw - var(--sidebar-thickness) - var(--outer-side-edge-thickness));
-	height: calc(100vh - var(--top-bar-thickness) - var(--outer-side-edge-thickness));
 	padding: 2rem;
 	border-radius: var(--border-radius);
     min-width: 50vw;
 }
+
+.main-content *{
+    background-color: transparent;
+}
+

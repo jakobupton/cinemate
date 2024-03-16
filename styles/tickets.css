@@ -1,10 +1,11 @@
 .content {
 	display: flex;
 	background-color: var(--background-color-darker);
+	height: calc(100vh - var(--top-bar-thickness) - (3 * var(--outer-side-edge-thickness)));
+	width: 100%;
 }
 .content * {
 	display: flex;
-    background-color: var(--background-color-darker);
 }
 h1 {
 	font-size: 24px;
@@ -28,6 +29,17 @@ p {
 .content-left {
 	flex-direction: column;
 }
+.content-right *{
+	background-color: var(--background-color);
+}
+.content-right{
+	background-color: var(--background-color);
+	width: 30%;
+	border-radius: var(--border-radius);
+	flex-direction: column;
+	padding: 1em;
+	justify-content: space-around;
+}
 .movie-info-top{
 	display: flex;
 	flex-direction: column;
@@ -39,16 +51,18 @@ p {
 	color: var(--text-color-light);
 }
 .movie-info-left{
-	min-width: 30%;
+	width: 30%;
 }
 .movie-info-left #movie-cover{
 	border-radius: var(--border-radius);
 	border: 2px solid white;
+	width: 100%;
+	object-fit: cover;
 }
 .movie-info-right {
 	display: flex;
 	flex-direction: column;
-	width: 70%;
+	width: 60%;
 }
 .movie-info-right .movie-genre *{
 	background-color: var(--primary-color);
@@ -56,10 +70,10 @@ p {
 }
 .movie-info-right .movie-genre{
 	border: 0.25em solid var(--primary-color);
-	border-radius: 20px;
+	border-radius: var(--border-radius);
 	margin-left: 0.5em;
 	background-color: var(--primary-color);
-	max-height: 2em;
+	height: 2em;
 	padding-left: 1em;
 	padding-right: 1em;
 }
@@ -75,7 +89,7 @@ p {
 	margin-right: 0.5em;
 }
 .movie-title{
-	width: 40%;
+	width: 50%;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -92,6 +106,7 @@ p {
 .movie-screen object{
 	width: 80%;
 	pointer-events: none;
+    user-select: none;
 }
 .movie-seats-section{
 	align-items: center;
@@ -140,29 +155,21 @@ p {
 .content-left{
 	width: 70%;
 }
-.content-right *{
-	background-color: var(--background-color);
-}
-.content-right{
-	background-color: var(--background-color);
-	width: 30%;
-	border-radius: var(--border-radius);
-	flex-direction: column;
-	padding: 1em;
-	justify-content: space-around;
-}
 .movie-wrapper{
-	width: 100%;
+	width: 80%;
 	height: 30%;
+    justify-content: space-around;
 }
 .selected-seats{
 	min-height: 2em;
 	flex-wrap: wrap;
+	overflow-y: scroll;
 }
 .selected-seats p{
 	color: var(--accent-color);
 	font-weight: bold;
 	margin-bottom: 1em;
+    margin-right: 1em;
 	height: 1em;
 	background-color: var(--primary-color);
 	padding: 1em;
@@ -294,10 +301,10 @@ hr {
 	height: 1em;
 	border-radius: 5px;
 }
-#A-0, #A-10{
+#A-0, #A-9{
 	opacity: 0;
 }
-.seat:not(#A-0,#A-10):hover{
+.seat:not(#A-0,#A-9):hover{
 	background-color: var(--accent-color);
 	cursor: pointer;
 }

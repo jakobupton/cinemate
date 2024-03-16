@@ -3,9 +3,9 @@
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Cinemate | Booking</title>
+      <title>Cinemate</title>
       <link rel="icon" href="img/icons/c_logo.png">
-      <link rel="stylesheet" href="styles/main.css" />
+      <link rel="stylesheet" href="styles/index.css" />
       <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -51,7 +51,7 @@
       </div>
       <div class="main-content">
          <?php // Display content based on page here
-            include("view/movie.php");
+            include("view/movies.php");
          ?>
       </div>
    </body>
