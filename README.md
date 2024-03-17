@@ -8,8 +8,8 @@ Import the cinemate.sql database into phpmyadmin
 
 The current user login is
 ```
-username: mgs_user
-password: pa55word
+username: "admin"
+password: ""
 ```
 so ensure that user is setup or change the database user account in cinemate/private/model/db_credentials.php to match a user with read write privileges
 
