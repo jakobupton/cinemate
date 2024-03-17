@@ -7,8 +7,10 @@ Move the cinemate folder into the root folder of the webserver, either /html/ or
 Import the cinemate.sql database into phpmyadmin
 
 The current user login is
+```
 username: mgs_user
 password: pa55word
+```
 so ensure that user is setup or change the database user account in cinemate/private/model/db_credentials.php to match a user with read write privileges
 
 Navigate to the cinemate directory on your apache webserver in the browser, for example mine is hosted at 10.0.0.140/cinemate.
