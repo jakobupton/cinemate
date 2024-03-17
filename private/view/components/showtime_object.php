@@ -21,7 +21,7 @@ $movie = find_movie_by_id($showtime["imdb_id"]);
             <?php 
                 foreach ($movie["genres"] as $genre){
                     echo "<div class='movie-genre'>
-                        <h4>" . $movie["genres"] . "</h4>
+                        <h4>" . ucfirst($genre) . "</h4>
                     </div>";
                 } 
             ?>

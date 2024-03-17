@@ -19,22 +19,22 @@
 .movie-title{
     display: flex;
     align-items: center;
+    width: 100%;
 }
 .movie-title p{
     margin-left: 1em;
 }
 
 .movie-cover{
-    height: 100%;
     align-items: center;
     margin-right: 2em;
+    width: 40%;
 }
 
 .movie-cover img{
-    width: 100%;
-    height: 100%;
     border-radius: var(--border-radius);
     border: 2px solid white;
+    max-height: 100%;
 }
 .movie-genres-box{
     display: flex;

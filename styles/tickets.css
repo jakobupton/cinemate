@@ -50,19 +50,16 @@ p {
 	font-size: 14px;
 	color: var(--text-color-light);
 }
-.movie-info-left{
-	width: 30%;
-}
 .movie-info-left #movie-cover{
 	border-radius: var(--border-radius);
 	border: 2px solid white;
-	width: 100%;
-	object-fit: cover;
+	height: 100%;
 }
 .movie-info-right {
 	display: flex;
 	flex-direction: column;
-	width: 60%;
+	width: 90%;
+	margin-left: 2em;
 }
 .movie-info-right .movie-genre *{
 	background-color: var(--primary-color);
@@ -76,6 +73,7 @@ p {
 	height: 2em;
 	padding-left: 1em;
 	padding-right: 1em;
+	width: fit-content;
 }
 .movie-info-right .movie-rating{
 	font-size: 14px;
@@ -156,9 +154,9 @@ p {
 	width: 70%;
 }
 .movie-wrapper{
-	width: 80%;
+	width: 90%;
 	height: 30%;
-    justify-content: space-around;
+    justify-content: center;
 }
 .selected-seats{
 	min-height: 2em;

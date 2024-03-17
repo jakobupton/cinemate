@@ -4,7 +4,6 @@
 <?php 
     $Showtime = find_showtime_by_id($_GET["showtime"]);
     $Movie = find_movie_by_id($Showtime["imdb_id"]);
-    $MovieGenres = explode(",", $Movie["genres"]);
 
     foreach ($ReservedSeats as $seat) {
         $escapedSeat = htmlspecialchars($seat, ENT_QUOTES, 'UTF-8');
@@ -33,7 +32,7 @@
                     </div>
                     <div class="movie-genre-box">
                         <?php 
-                            foreach ($MovieGenres as $genre){
+                            foreach ($Movie["genres"] as $genre){
                                 echo "<div class='movie-genre'>
                                     <p>" . ucfirst($genre) . "</p>
                                 </div>";

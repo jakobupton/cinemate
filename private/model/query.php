@@ -3,12 +3,25 @@
 
     function find_all_movies() {
       global $db;
-
+  
       $sql = "SELECT * FROM movies";
       $result = mysqli_query($db, $sql);
       confirm_result_set($result);
-      return $result;
-    }
+      
+      $movies = []; // Initialize an empty array to store movies
+      
+      while ($movie = mysqli_fetch_assoc($result)) {
+          $movies[] = $movie; // Add each fetched movie to the array
+      }
+      
+      mysqli_free_result($result); // Free the result set
+      
+      for($i = 0; $i < count($movies); $i++){
+          $movies[$i]["genres"] = explode(",", $movies[$i]["genres"]);
+      }
+      return $movies;
+  }
+  
 
     function find_movie_by_id($id) {
       global $db;
@@ -20,6 +33,7 @@
       confirm_result_set($result);
       $movie = mysqli_fetch_assoc($result); // find first
       mysqli_free_result($result);
+      $movie["genres"] = explode(",", $movie["genres"]);
       return $movie; // returns an assoc. array
     }
 
