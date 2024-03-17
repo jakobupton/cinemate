@@ -2,7 +2,7 @@ Cinemate is a mock movie ticket booking website that allows users to book ticket
 
 To start, ensure you're running an apache webserver with MySQL and PHPMyAdmin to manage the databases.
 
-Move the cinemate folder into the root folder of the webserver, either /html/ or /htdocs/
+Move the cinemate folder into the root folder of the webserver, either /html/ or /htdocs/ (in XAMPP)
 
 Import the cinemate.sql database into phpmyadmin
 
