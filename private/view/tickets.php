@@ -2,16 +2,9 @@
     <link rel="stylesheet" href="styles/tickets.css" />
 </head>
 <?php 
-    $MovieName = "Spider-Man: Into the Spider-Verse";
-    $MovieCoverPath = "img/movies/spiderman.jpg"; // Movie cover
-    $MovieDescription = "Teen Miles Morales becomes the Spider-Man of his universe and must join with five spider-powered individuals from other dimensions to stop a threat for all realities.";
-    $MovieScreeningType = "Regular Screening";
-    $MovieLocation = "Screen 3";
-    $MovieTime = "8:30pm";
-    $MovieDate = "March 19th 2024";
-    $MovieRating = 8.4;
-    $MovieGenres = array("Action", "Adventure");
-    $ReservedSeats = array("A-3", "B-6");
+    $Showtime = find_showtime_by_id($_GET["showtime"]);
+    $Movie = find_movie_by_id($Showtime["imdb_id"]);
+    $MovieGenres = explode(",", $Movie["genres"]);
 
     foreach ($ReservedSeats as $seat) {
         $escapedSeat = htmlspecialchars($seat, ENT_QUOTES, 'UTF-8');
@@ -26,23 +19,23 @@
 <div class="content">
     <div class="content-left">
         <div class="movie-info-top">
-            <h1>BOOK A SHOW</h1>
-            <p id="movie-showtime"><p><?php echo $MovieLocation . " | " . $MovieTime . " (" . $MovieDate . ")" ?></p>
+            <h1>BOOK SEATS</h1>
+            <p id="movie-showtime"><p><?php echo $Showtime["time"] . " | " . $Showtime["date"] ?></p>
         </div>
         <div class="movie-wrapper">
             <div class="movie-info-left">
-                <img src="<?php echo $MovieCoverPath ?>" id="movie-cover" alt="<?php echo $MovieName?>"></img>
+                <img src="<?php echo $Movie["cover_path"] ?>" id="movie-cover" alt="<?php echo $Movie["title"]?>"></img>
             </div>
             <div class="movie-info-right">
                 <div class="movie-info-right-top">
                     <div class="movie-title">
-                        <h2 id="movie-title"><?php echo $MovieName ?></h2>
+                        <h2 id="movie-title"><?php echo $Movie["title"] ?></h2>
                     </div>
                     <div class="movie-genre-box">
                         <?php 
                             foreach ($MovieGenres as $genre){
                                 echo "<div class='movie-genre'>
-                                    <p>" . $genre . "</p>
+                                    <p>" . ucfirst($genre) . "</p>
                                 </div>";
                             } 
                         ?>
@@ -50,9 +43,9 @@
                 </div>
                 <div class="movie-rating">
                     <img src="img/icons/star.png" alt="star" id="star"></img>
-                    <p><?php echo $MovieRating . " / 10" ?></p>
+                    <p><?php echo $Movie["rating"] . " / 10" ?></p>
                 </div>
-                <p class="movie-desc"><?php echo $MovieDescription ?></p>
+                <p class="movie-desc"><?php echo $Movie["description"] ?></p>
                 <p class="movie-showing-type"><?php echo $MovieScreeningType ?></p>
             </div>
         </div>

@@ -24,6 +24,8 @@ function addSeatName(seatId) {
   const seatElement = document.createElement('p');
   seatElement.textContent = seatId;
   selectedSeatsContainer.appendChild(seatElement);
+
+  
 }
 
 function removeSeatName(seatId) {

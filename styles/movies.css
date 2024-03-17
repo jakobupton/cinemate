@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: auto;
+    width: 100%;
 }
 .content *{
     background-color: transparent;
@@ -34,8 +34,8 @@
     width: 100%;
     height: 100%;
     border-radius: var(--border-radius);
+    border: 2px solid white;
 }
-
 .movie-genres-box{
     display: flex;
 }
@@ -69,4 +69,17 @@
 
 .showtimes button:hover{
     background-color: var(--secondary-color);
+}
+
+.movie-rating{
+	font-size: 14px;
+	align-items: flex-start;
+	vertical-align: center;
+	margin-bottom: 1em;
+    display: flex;
+}
+.movie-rating #star{
+	width: 1em;
+	height: 1em;
+	margin-right: 0.5em;
 }

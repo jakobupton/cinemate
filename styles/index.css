@@ -21,6 +21,10 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
     color: var(--text-color);
+    background-color: transparent;
+}
+
+body{
     background-color: var(--background-color);
 }
 
@@ -66,16 +70,6 @@
     height: var(--sidebar-icon-size); 
 }
 
-.sidebar .nav-item:hover{
-    background-color: var(--primary-color);
-    border-radius: var(--border-radius);
-}
-
-.sidebar .nav-item:hover > .sidebar{
-    background-color: var(--primary-color);
-    border-radius: var(--border-radius);
-}
-
 .main-content {
 	position: relative;
 	display: flex;
@@ -92,3 +86,14 @@
     background-color: transparent;
 }
 
+.sidebar-item{
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    transition: 0.3s;
+}
+
+.sidebar-item:hover{
+    background-color: var(--background-color-darker);
+}
