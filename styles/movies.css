@@ -65,6 +65,7 @@
     margin: 0.5em;
     color: white;
     cursor: pointer;
+    text-wrap: nowrap;
 }
 
 .showtimes button:hover{
