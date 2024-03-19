@@ -161,7 +161,7 @@ p {
 .selected-seats{
 	min-height: 2em;
 	flex-wrap: wrap;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 .selected-seats p{
 	color: var(--accent-color);
@@ -249,7 +249,7 @@ hr {
 	color: white;
 	border-radius: 10px;
 	height: 3em;
-	border-color: transparent;
+	border: unset;
 }
 .customer-info-buttons{
 	justify-content: space-between;
@@ -292,6 +292,9 @@ hr {
 .customer-info-buttons #confirm:active{
 	background-image: none;
 	background-color: var(--secondary-color);
+}
+.movie-desc{
+	overflow-y: auto;
 }
 .seat{
 	background-color: var(--primary-color);

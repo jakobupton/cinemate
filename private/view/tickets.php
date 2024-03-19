@@ -4,16 +4,6 @@
 <?php 
     $Showtime = find_showtime_by_id($_GET["showtime"]);
     $Movie = find_movie_by_id($Showtime["imdb_id"]);
-
-    foreach ($ReservedSeats as $seat) {
-        $escapedSeat = htmlspecialchars($seat, ENT_QUOTES, 'UTF-8');
-        echo "<script> 
-                var seatElement = document.getElementById('" . $escapedSeat . "');
-                if (seatElement) {
-                    seatElement.setAttribute('reserved', 'true');
-                }
-              </script>";
-    }
 ?>
 <div class="content">
     <div class="content-left">

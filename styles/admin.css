@@ -1,4 +1,47 @@
 .content{
     justify-content: center;
     align-items: center;
+    width: 100%;
+}
+.adminItem{
+    background-color: var(--background-color);
+    padding: 2em;
+    border-radius: var(--border-radius);
+    margin-bottom: 2em;
+}
+.adminItem input{
+    padding: 0.5em;
+    width: 100%;
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--background-color-darker);
+    font-size: 1.2em;
+    margin: 0.5em 0;
+    cursor: text;
+}
+
+.adminSubmitButton{
+    padding: 1em;
+    width: 10%;
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--background-color-darker);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.adminSubmitButton:hover{
+    background-color: var(--primary-color);
+}
+
+.adminItem select{
+    padding: 0.5em;
+    width: 100%;
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--background-color-darker);
+    font-size: 1.2em;
+    margin: 0.5em 0;
+    color: var(--text-color);
+    cursor: pointer;
 }
