@@ -83,3 +83,15 @@
 	height: 1em;
 	margin-right: 0.5em;
 }
+
+#description{
+    color: var(--text-color-light);
+}
+
+#movieTitle{
+    font-weight: 400;
+}
+
+#showtimesListTitle{
+    font-weight: 500;
+}

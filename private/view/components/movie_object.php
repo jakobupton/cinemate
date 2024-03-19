@@ -4,14 +4,14 @@
     </div>
     <div class="movie-info">
         <div class="movie-title">
-            <h1><?php echo $movie["title"] ?></h1>
+            <h1 id="movieTitle"><?php echo $movie["title"] ?></h1>
             <p><?php echo $movie["year"] ?></p>
         </div>
         <div class="movie-rating">
             <img src="img/icons/star.png" alt="star" id="star"></img>
             <p><?php echo $movie["rating"] . " / 10" ?></p>
         </div>
-        <p><?php echo $movie["description"] ?></p>
+        <p id="description"><?php echo $movie["description"] ?></p>
         <div class="movie-genres-box">
             <?php 
                 foreach ($movie["genres"] as $genre){

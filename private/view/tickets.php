@@ -134,21 +134,21 @@
         <div class="price-info">
             <div class="price-item">
                 <p>Subtotal</p>
-                <p>40</p>
+                <p id="price">00</p>
             </div>
             <div class="price-item">
                 <p>Discount</p>
-                <p>00</p>
+                <p id="discount">00</p>
             </div>
             <div class="price-item">
                 <p>Tax</p>
-                <p>5.50</p>
+                <p id="tax">00</p>
             </div>
         </div>
         <hr>
         <div class="price-item">
             <h3>Total</h3>
-            <p>$45.50</p>
+            <p id="total">$00.00</p>
         </div>
         <div class="payment-select-box">
             <div class="payment-select">
