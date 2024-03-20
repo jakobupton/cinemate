@@ -1,4 +1,5 @@
 <?php
+  require_once("private/model/database.php");
     // Movies
 
     function find_all_movies() {
@@ -74,31 +75,34 @@
 
     function convertToIMDBId($Imdb_link){
       // Match the IMDb ID using a regular expression
-      preg_match('/tt\d+/', $link, $matches); // finds from /tt to /
+      preg_match('/tt\d+/', $Imdb_link, $matches); // finds from /tt to /
   
       // Extract the IMDb ID from the matches array
       $imdb_id = $matches[0];
   
       return $imdb_id; //output example tt0091042
-  }
+  }  
   
-  function addMovieToDB($ImdbID){
+  function addMovieToDB($Imdb_link){
     global $db;
     
-      $path = "http://www.omdbapi.com/?i=$ImdbID&apikey=" . IMDB_API_KEY;
-      $json = file_get_contents($path);
-      $movie = json_decode($json, TRUE);
-      $title = $movie['Title'];
-      $year = $movie['Year'];
-      $genres = $movie['Genre'];
-      $plot = $movie['Plot'];
-      $rating = $movie['imdbRating'];
-  
-      $sql = "INSERT INTO movies (imdb_id, title, year, genres, plot, rating) VALUES ('$ImdbID', '$title', '$year', '$genres', '$plot', '$rating')";
+    $ImdbID = convertToIMDBId($Imdb_link);
+    
+    $path = "http://www.omdbapi.com/?i=$ImdbID&apikey=" . IMDB_API_KEY;
+    $json = file_get_contents($path);
+    $movie = json_decode($json, TRUE);
+    $title = $movie['Title'];
+    $year = $movie['Year'];
+    $cover_path = $movie['Poster'];
+    $genres = $movie['Genre'];
+    $plot = $movie['Plot'];
+    $rating = $movie['imdbRating'];
 
-      $result = mysqli_query($db, $sql);
 
-      return $result;
+
+    $sql = "INSERT INTO movies (imdb_id, title, year, cover_path, genres, plot, rating) VALUES ('$ImdbID', '$title', '$year', '$cover_path', '$genres', '$plot', '$rating')";
+    $result = mysqli_query($db, $sql);
+    return $result;
   }
 
 ?>
