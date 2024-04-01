@@ -102,7 +102,6 @@
 
     $sql = "INSERT INTO movies (imdb_id, title, year, cover_path, genres, plot, rating) VALUES ('$ImdbID', '$title', '$year', '$cover_path', '$genres', '$plot', '$rating')";
     $result = mysqli_query($db, $sql);
-    return $result;
   }
 
 ?>

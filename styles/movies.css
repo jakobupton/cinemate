@@ -24,17 +24,11 @@
 .movie-title p{
     margin-left: 1em;
 }
-
-.movie-cover{
-    align-items: center;
-    margin-right: 2em;
-    width: fit-content;
-}
-
-.movie-cover img{
+#cover{
     border-radius: var(--border-radius);
-    border: 2px solid white;
+    border: 2px solid #FFFFFF;
     height: 100%;
+    margin-right: 2em;
 }
 .movie-genres-box{
     display: flex;

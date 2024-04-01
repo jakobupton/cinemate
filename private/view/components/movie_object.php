@@ -1,7 +1,5 @@
 <div class="movie-object">
-    <div class="movie-cover">
-        <img src="<?php echo $movie["cover_path"] ?>" alt="<?php echo $movie["name"] ?>"></img>
-    </div>
+    <img id="cover" src="<?php echo $movie["cover_path"] ?>" alt="<?php echo $movie["name"] ?>"></img>
     <div class="movie-info">
         <div class="movie-title">
             <h1 id="movieTitle"><?php echo $movie["title"] ?></h1>

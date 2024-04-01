@@ -50,7 +50,7 @@ p {
 	font-size: 14px;
 	color: var(--text-color-light);
 }
-.movie-info-left #movie-cover{
+#cover{
 	border-radius: var(--border-radius);
 	border: 2px solid white;
 	height: 100%;
@@ -162,6 +162,7 @@ p {
 	min-height: 2em;
 	flex-wrap: wrap;
 	overflow-y: auto;
+	max-height: 4em;
 }
 .selected-seats p{
 	color: var(--accent-color);

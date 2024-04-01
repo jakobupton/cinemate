@@ -12,9 +12,7 @@
             <p id="movie-showtime"><p><?php echo $Showtime["time"] . " | " . $Showtime["date"] ?></p>
         </div>
         <div class="movie-wrapper">
-            <div class="movie-info-left">
-                <img src="<?php echo $Movie["cover_path"] ?>" id="movie-cover" alt="<?php echo $Movie["title"]?>"></img>
-            </div>
+            <img id="cover" src="<?php echo $Movie["cover_path"] ?>" alt="<?php echo $Movie["title"]?>"></img>
             <div class="movie-info-right">
                 <div class="movie-info-right-top">
                     <div class="movie-title">
@@ -116,7 +114,6 @@
            <p>In Progress</p>
         </div>
         <hr class="dotted-line"></hr>
-        <p>Order ID #091322</p>
         <h3>Selected Seats</h3>
         <p>Regular</p>
         <div class="selected-seats"></div>
