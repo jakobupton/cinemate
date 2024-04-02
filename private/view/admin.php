@@ -1,16 +1,15 @@
 <head>
     <link rel="stylesheet" href="styles/admin.css" />
+    <script src="scripts/admin.js"></script>
 </head>
 <div class="content">
     <div class="adminItem" id="addMovie">
         <h1>Add a Movie</h1>
-        <form action="">
-            <div class="form-group">
-                <label for="imdb_link">IMDB Link</label>
-                <input type="text" id="imdb_link" name="imdb_link" placeholder="https://www.imdb.com/title/tt0816692/" required>
-            </div>
-            <button class="adminSubmitButton" id="submitAddMovie" type="submit" onClick="addMovieByLink();">Add Movie</button>
-        </form>
+        <div class="form-group">
+            <label for="imdb_link">IMDB Link</label>
+            <input type="text" id="imdb_link" name="imdb_link" placeholder="https://www.imdb.com/title/tt0816692/" required>
+        </div>
+        <button class="adminSubmitButton" id="submitAddMovie" type="submit" onClick="addMovieByLink();">Add Movie</button>
     </div>
     <div class="adminItem" id="addShowtime">
         <h1>Add a Showtime</h1>
@@ -65,5 +64,4 @@
             <button class="adminSubmitButton" id="submitDeleteShowtime" type="submit">Delete Showtime</button>
         </form>
     </div>
-    <script src="scripts/admin.js"></script>
 </div>

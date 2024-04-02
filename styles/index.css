@@ -80,6 +80,8 @@ body{
 	padding: 2rem;
 	border-radius: var(--border-radius);
     min-width: 50vw;
+    align-items: center;
+    justify-content: center;
 }
 
 .main-content *{

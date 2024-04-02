@@ -121,21 +121,21 @@
         <div class="price-info">
             <div class="price-item">
                 <p>Subtotal</p>
-                <p id="price">00</p>
+                <p id="price">$0.00</p>
             </div>
             <div class="price-item">
                 <p>Discount</p>
-                <p id="discount">00</p>
+                <p id="discount">$0.00</p>
             </div>
             <div class="price-item">
                 <p>Tax</p>
-                <p id="tax">00</p>
+                <p id="tax">$0.00</p>
             </div>
         </div>
         <hr>
         <div class="price-item">
             <h3>Total</h3>
-            <p id="total">$00.00</p>
+            <p id="total">$0.00</p>
         </div>
         <div class="payment-select-box">
             <div class="payment-select">

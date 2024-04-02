@@ -1,5 +1,5 @@
 <?php
-  require_once("private/model/database.php");
+  require_once("/var/www/html/cinemate/private/model/database.php");
     // Movies
 
     function find_all_movies() {
@@ -85,23 +85,27 @@
   
   function addMovieToDB($Imdb_link){
     global $db;
-    
     $ImdbID = convertToIMDBId($Imdb_link);
-    
     $path = "http://www.omdbapi.com/?i=$ImdbID&apikey=" . IMDB_API_KEY;
     $json = file_get_contents($path);
     $movie = json_decode($json, TRUE);
-    $title = $movie['Title'];
+    $title = filter_var($movie['Title'], FILTER_SANITIZE_STRING);
+    echo $title;
     $year = $movie['Year'];
     $cover_path = $movie['Poster'];
     $genres = $movie['Genre'];
-    $plot = $movie['Plot'];
+    $plot = filter_var($movie['Plot'], FILTER_SANITIZE_STRING);
+    echo $plot;
     $rating = $movie['imdbRating'];
-
-
-
-    $sql = "INSERT INTO movies (imdb_id, title, year, cover_path, genres, plot, rating) VALUES ('$ImdbID', '$title', '$year', '$cover_path', '$genres', '$plot', '$rating')";
+    $sql = "INSERT INTO movies (imdb_id, title, year, cover_path, genres, description, rating) VALUES ('$ImdbID', '$title', '$year', '$cover_path', '$genres', '$plot', '$rating')";
+    ini_set('display_errors', '1');
+    ini_set('display_startup_errors', '1');
+    error_reporting(E_ALL);
+    ini_set('log_errors',1);
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     $result = mysqli_query($db, $sql);
+    
+    return $result;
   }
 
 ?>

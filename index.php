@@ -57,16 +57,22 @@
       <div class="main-content">
          <?php 
             $page = $_GET['page'];
-            if($page == "tickets"){
-               require_once("private/view/tickets.php");
-            }else if ($page == "movies"){
-               require_once("private/view/movies.php");
-            }else if ($page == "showtimes"){
-               require_once("private/view/showtimes.php");
-            }else if ($page == "admin"){
-               require_once("private/view/admin.php");
-            }else{
-               require_once("private/view/home.php");
+            switch ($page) {
+               case "tickets":
+                  require_once("private/view/tickets.php");
+                  break;
+               case "movies":
+                  require_once("private/view/movies.php");
+                  break;
+               case "showtimes":
+                  require_once("private/view/showtimes.php");
+                  break;
+               case "admin":
+                  require_once("private/view/admin.php");
+                  break;
+               default:
+                  require_once("private/view/home.php");
+                  break;
             }
          ?>
       </div>

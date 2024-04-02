@@ -3,51 +3,61 @@
 	background-color: var(--background-color-darker);
 	height: calc(100vh - var(--top-bar-thickness) - (3 * var(--outer-side-edge-thickness)));
 	width: 100%;
+	position: relative;
+	overflow: auto;
 }
 .content * {
 	display: flex;
 }
 h1 {
-	font-size: 24px;
+	font-size: x-large;
 	font-style: bold;
 	color: var(--text-color);
 }
 h2 {
-	font-size: 20px;
+	font-size: x-large;
 	font-weight: 300;
 	color: var(--text-color);
 }
 h3{
-	background-color: var(--primary-color);
-	font-size: 20px;
+	font-size: large;
 	font-weight: 400;
 }
 p {
-	font-size: 14px;
+	font-size: medium;
 	color: var(--text-color-light);
 }
 .content-left {
 	flex-direction: column;
+	width: 70%;
+	margin-right: 2em;
+	display: flex;
+}
+.content-left *{
+	background-color: transparent;
 }
 .content-right *{
-	background-color: var(--background-color);
+	background-color: transparent;
 }
 .content-right{
+	position: absolute;
+	right: 0;
 	background-color: var(--background-color);
 	width: 30%;
+	height: 100%;
 	border-radius: var(--border-radius);
 	flex-direction: column;
 	padding: 1em;
 	justify-content: space-around;
+	display: flex;
+	overflow-y: auto;
 }
 .movie-info-top{
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 1em;
-	flex-wrap: wrap;
 }
 .movie-info-top #movie-showtime{
-	font-size: 14px;
 	color: var(--text-color-light);
 }
 #cover{
@@ -58,11 +68,10 @@ p {
 .movie-info-right {
 	display: flex;
 	flex-direction: column;
-	width: 90%;
 	margin-left: 2em;
+	height: auto;
 }
 .movie-info-right .movie-genre *{
-	background-color: var(--primary-color);
 	color: white;
 }
 .movie-info-right .movie-genre{
@@ -73,12 +82,8 @@ p {
 	height: 2em;
 	padding-left: 1em;
 	padding-right: 1em;
-	width: fit-content;
 }
 .movie-info-right .movie-rating{
-	font-size: 14px;
-	align-items: flex-start;
-	vertical-align: center;
 	margin-bottom: 1em;
 }
 .movie-info-right .movie-rating #star{
@@ -87,13 +92,9 @@ p {
 	margin-right: 0.5em;
 }
 .movie-title{
-	width: 50%;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-}
-.movie-info-right .movie-showing-type{
-	margin-top: auto;
 }
 .movie-screen {
 	margin-top: 1em;
@@ -102,7 +103,7 @@ p {
 	pointer-events: none;
 }
 .movie-screen object{
-	width: 80%;
+	width: 60%;
 	pointer-events: none;
     user-select: none;
 }
@@ -121,9 +122,8 @@ p {
 	height: 60%;
 }
 .movie-seat-rows p{
-	color: var(--text-color-dark);
+	color: var(--text-color);
 	font-weight: 500;
-	font-size: 14px;
 }
 .movie-seats-side{
 	display: inline-grid;
@@ -150,13 +150,9 @@ p {
 .movie-seat-rows{
 	display: grid;
 }
-.content-left{
-	width: 70%;
-}
 .movie-wrapper{
-	width: 90%;
-	height: 30%;
     justify-content: center;
+	height: 30%;
 }
 .selected-seats{
 	min-height: 2em;
@@ -165,12 +161,12 @@ p {
 	max-height: 4em;
 }
 .selected-seats p{
+	background-color: var(--primary-color);
 	color: var(--accent-color);
 	font-weight: bold;
 	margin-bottom: 1em;
     margin-right: 1em;
 	height: 1em;
-	background-color: var(--primary-color);
 	padding: 1em;
 	align-items: center;
 	justify-content: center;
@@ -187,7 +183,6 @@ p {
 }
 .order-status p{
 	color: var(--text-color-yellow);
-	font-size: 14px;
 	font-weight: 300;
 }
 .price-info{
@@ -196,11 +191,10 @@ p {
 .price-item{
 	justify-content: space-between;
 }
-.payment-select-box *{
-	background-color: var(--background-color-darker);
-}
 .payment-select-box{
 	height: auto;
+	background-color: var(--background-color-darker);
+	border-radius: var(--border-radius);
 }
 .payment-select {
 	flex-direction: column;
@@ -213,13 +207,13 @@ p {
 }
 .seating-legend {
 	justify-content: space-between;
-	width: 40%;
-	margin: auto;
+	align-items: center;
 }
 .seating-legend .box{
 	width: 1em;
 	height: 1em;
 	border-radius: 5px;
+	margin: 1em;
 }
 .seating-legend #available{
 	background-color: var(--primary-color);

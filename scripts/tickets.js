@@ -28,7 +28,7 @@ total = document.querySelector('#total');
 
 seatDiv.addEventListener('DOMSubtreeModified', () => {
   ticketsPrice = seatDiv.childElementCount * 10;
-  price.textContent = "$" + ticketsPrice;
+  price.textContent = "$" + (ticketsPrice).toFixed(2);
   tax.textContent = "$" + (ticketsPrice * 0.12).toFixed(2);
   total.textContent = "$" + (ticketsPrice * 1.12).toFixed(2);
 
