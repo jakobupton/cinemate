@@ -3,7 +3,7 @@
     <div class="movie-info">
         <div class="movie-title">
             <h1 id="movieTitle"><?php echo $movie["title"] ?></h1>
-            <p><?php echo $movie["year"] ?></p>
+            <p id="year" ><?php echo $movie["year"] ?></p>
         </div>
         <div class="movie-rating">
             <img src="img/icons/star.png" alt="star" id="star"></img>

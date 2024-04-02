@@ -70,6 +70,10 @@ p {
 	flex-direction: column;
 	margin-left: 2em;
 	height: auto;
+	width: 80%;
+}
+.movie-desc {
+	width: 80%;
 }
 .movie-info-right .movie-genre *{
 	color: white;
@@ -95,6 +99,7 @@ p {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	max-width: 60%;
 }
 .movie-screen {
 	margin-top: 1em;
@@ -287,9 +292,6 @@ hr {
 .customer-info-buttons #confirm:active{
 	background-image: none;
 	background-color: var(--secondary-color);
-}
-.movie-desc{
-	overflow-y: auto;
 }
 .seat{
 	background-color: var(--primary-color);

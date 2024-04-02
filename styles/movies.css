@@ -9,7 +9,7 @@
 }
 .movie-object{
     display: flex;
-    width: 80%;
+    width: 100%;
     margin-bottom: 1em;
     height: 22em;
     background-color: var(--background-color);
@@ -20,7 +20,6 @@
 .movie-title{
     display: flex;
     align-items: center;
-    width: 100%;
 }
 .movie-title p{
     margin-left: 1em;
@@ -87,8 +86,17 @@
 
 #movieTitle{
     font-weight: 400;
+    width: 70%;
 }
 
 #showtimesListTitle{
     font-weight: 500;
+}
+#showtimeInfo, #year{
+    white-space: nowrap;
+    overflow: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 2em;
 }

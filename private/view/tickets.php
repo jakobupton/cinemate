@@ -9,7 +9,7 @@
     <div class="content-left">
         <div class="movie-info-top">
             <h1>BOOK SEATS</h1>
-            <p id="movie-showtime"><p><?php echo $Showtime["time"] . " | " . $Showtime["date"] ?></p>
+            <p id="movie-showtime"><p><?php echo date("h:ia", $showtime["time"]) . " | " . date("M d, Y", $showtime["date"]) ?></p>
         </div>
         <div class="movie-wrapper">
             <img id="cover" src="<?php echo $Movie["cover_path"] ?>" alt="<?php echo $Movie["title"]?>"></img>

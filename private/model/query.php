@@ -90,22 +90,38 @@
     $json = file_get_contents($path);
     $movie = json_decode($json, TRUE);
     $title = filter_var($movie['Title'], FILTER_SANITIZE_STRING);
-    echo $title;
     $year = $movie['Year'];
     $cover_path = $movie['Poster'];
     $genres = $movie['Genre'];
     $plot = filter_var($movie['Plot'], FILTER_SANITIZE_STRING);
-    echo $plot;
     $rating = $movie['imdbRating'];
     $sql = "INSERT INTO movies (imdb_id, title, year, cover_path, genres, description, rating) VALUES ('$ImdbID', '$title', '$year', '$cover_path', '$genres', '$plot', '$rating')";
+    $result = mysqli_query($db, $sql);
+  }
+
+  function addShowTimeToDB($imdb_id, $date, $time){
+    global $db;
+    $sql = "INSERT INTO showtimes (imdb_id, date, time) VALUES ('$imdb_id', '$date', '$time')";
+    $result = mysqli_query($db, $sql);
+  }
+
+  function deleteShowTime($show_id){
+    global $db;
+    $sql = "DELETE FROM showtimes WHERE show_id = '$show_id'";
+    $result = mysqli_query($db, $sql);
+  }
+
+  function deleteMovieByID($imdb_id){
+    global $db;
+    $sql1 = "DELETE FROM showtimes WHERE imdb_id = '$imdb_id'";
+    $sql2 = "DELETE FROM movies WHERE imdb_id = '$imdb_id'";
     ini_set('display_errors', '1');
     ini_set('display_startup_errors', '1');
     error_reporting(E_ALL);
     ini_set('log_errors',1);
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-    $result = mysqli_query($db, $sql);
-    
-    return $result;
+    mysqli_query($db, $sql1);
+    mysqli_query($db, $sql2);
   }
 
 ?>
