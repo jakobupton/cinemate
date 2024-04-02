@@ -9,7 +9,7 @@
     --background-color-darker: #131720;
     --background-color: #151F30;
     --top-bar-thickness: 100px;
-    --sidebar-thickness: 250px;
+    --sidebar-thickness: 200px;
     --outer-side-edge-thickness: 30px;
     --sidebar-icon-size: 50px;
     --border-radius: 36px;
@@ -31,21 +31,14 @@ body{
 .sidebar {
     position: absolute;
     height: 100%;
+    width: 100%;
     width: var(--sidebar-thickness);
 }
 
-
-.sidebar .top .logo {
-    width: 100%;
-    pointer-events: none;
-    margin-bottom: 100px;
-}
-
-.sidebar .top .logo img { /* cinemate C */
-    height: 80px;
-    position: absolute;
-    top: 30px;
-    left: 40px;
+#cinemate_logo{
+    height: calc(0.8 * var(--top-bar-thickness));
+    margin-top: 2em;
+    margin-left: calc(0.3 * (var(--sidebar-thickness)))
 }
 
 
@@ -91,6 +84,7 @@ body{
 .sidebar-item{
     display: flex;
     align-items: center;
+    width: calc(var(--sidebar-thickness) - 2em);
     padding: 1rem;
     border-radius: var(--border-radius);
     transition: 0.3s;
@@ -98,4 +92,37 @@ body{
 
 .sidebar-item:hover{
     background-color: var(--background-color-darker);
+    outline: 2px solid white;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.user p {
+    font-size: small;
+    flex-direction: column;
+    margin-right: 1em; /* Add margin to create space between p and image */
+}
+.userInfo {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 0.5em;
+    margin-right: var(--outer-side-edge-thickness);
+    background-color: var(--background-color-darker);
+    border-radius: var(--border-radius);
+    padding: 1em;
+    padding-bottom: 10em;
+}
+.userInfo img {
+    height: calc(var(--top-bar-thickness) * 0.5);
+}
+
+#logout{
+    text-decoration: none;
+    color: var(--accent-color);
 }

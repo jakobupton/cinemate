@@ -13,10 +13,18 @@
    </head>
    <body>
       <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/cinemate/private/model/initialize.php'); ?>
+      <div class="userInfo">
+         <div class="user">
+            <p id="user-name">Jakob Upton</p>
+            <p id="user-email">me@jakobupton.dev</p>
+            <p id="user-role">Admin | <a id="logout" href="/">Logout</a></p>
+         </div>
+         <img src="img/icons/c_logo.png" alt="user"/>
+      </div>
       <div class="sidebar">
          <div class="top">
             <div class="logo">
-               <img src="img/icons/c_logo.png" alt="cinemate c"class="cinemate-logo"></img>
+               <img src="img/icons/c_logo.png" id="cinemate_logo" alt="cinemate c" class="cinemate-logo"></img>
             </div>
          </div>
          <ul>
@@ -29,18 +37,18 @@
                </a>
             </li>
             <li>
-               <a href="/cinemate/?page=showtimes">
-                  <div class="sidebar-item">
-                     <img src="img/icons/icon_theatre.png" alt="showtimes"/>
-                     <span class="nav-item">Showtimes</span>
-                  </div>
-               </a>
-            </li>
-            <li>
                <a href="/cinemate/?page=movies">
                   <div class="sidebar-item">
                      <img src="img/icons/icon_movie.png" alt="showtimes"/>
                      <span class="nav-item">Movies</span>
+                  </div>
+               </a>
+            </li>
+            <li>
+               <a href="/cinemate/?page=showtimes">
+                  <div class="sidebar-item">
+                     <img src="img/icons/icon_theatre.png" alt="showtimes"/>
+                     <span class="nav-item">Showtimes</span>
                   </div>
                </a>
             </li>
