@@ -8,7 +8,7 @@ $movie = find_movie_by_id($showtime["imdb_id"]);
     <div class="movie-info">
         <div class="movie-title">
             <h1 id="movieTitle"><?php echo $movie["title"] ?></h1>
-            <p id="showtimeInfo"><?php echo date("h:ia", $showtime["time"]) . " | " . date("M d, Y", $showtime["date"]) ?></p>
+            <p id="showtimeInfo"><?php echo date("F j, Y | g:ia", strtotime($showtime["date"] . " " . $showtime["time"])) ?></p>
         </div>
         <div class="movie-rating">
             <img src="img/icons/star.png" alt="star" id="star"></img>
