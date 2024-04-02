@@ -1,6 +1,6 @@
 <?php
-  require_once('/var/www/html/cinemate/private/model/database.php');
-  require_once('/var/www/html/cinemate/private/model/query.php');
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/cinemate/private/model/database.php');
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/cinemate/private/model/query.php');
   
   
   $db = db_connect();

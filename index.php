@@ -12,7 +12,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
    </head>
    <body>
-      <?php require_once("private/model/initialize.php"); ?>
+      <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/cinemate/private/model/initialize.php'); ?>
       <div class="sidebar">
          <div class="top">
             <div class="logo">
@@ -59,19 +59,19 @@
             $page = $_GET['page'];
             switch ($page) {
                case "tickets":
-                  require_once("private/view/tickets.php");
+                  require_once($_SERVER['DOCUMENT_ROOT'] . '/cinemate/private/view/tickets.php');
                   break;
                case "movies":
-                  require_once("private/view/movies.php");
+                  require_once($_SERVER['DOCUMENT_ROOT'] . '/cinemate/private/view/movies.php');
                   break;
                case "showtimes":
-                  require_once("private/view/showtimes.php");
+                  require_once($_SERVER['DOCUMENT_ROOT'] . '/cinemate/private/view/showtimes.php');
                   break;
                case "admin":
-                  require_once("private/view/admin.php");
+                   require_once($_SERVER['DOCUMENT_ROOT'] . '/cinemate/private/view/admin.php');
                   break;
                default:
-                  require_once("private/view/home.php");
+                  require_once($_SERVER['DOCUMENT_ROOT'] . '/cinemate/private/view/home.php');
                   break;
             }
          ?>

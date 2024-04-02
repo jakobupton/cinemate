@@ -1,5 +1,5 @@
 <?php
-  require_once("/var/www/html/cinemate/private/model/database.php");
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/cinemate/private/model/database.php');
     // Movies
 
     function find_all_movies() {
