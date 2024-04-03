@@ -25,7 +25,15 @@
     font-size: 0.8em;
     margin: 0.5em 0;
     cursor: text;
+    border: 1px solid var(--secondary-color);
 }
+
+/* select {
+    border: 1px solid var(--secondary-color);
+    background-color: #fff;
+    color: var(--background-color-darker);
+    appearance: none; 
+} */
 
 .adminSubmitButton{
     padding: 1em;
@@ -39,7 +47,7 @@
 }
 
 .adminSubmitButton:hover{
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
 }
 
 .adminItem select{
@@ -52,4 +60,10 @@
     margin: 0.5em 0;
     color: var(--text-color);
     cursor: pointer;
+    border: 1px solid var(--secondary-color); /* Border style */
+    color: white; /* Text color */
+    appearance: none; /* Remove default arrow icon */
+}
+.optionPlaceholder{
+    color: var(--text-color-dark);
 }

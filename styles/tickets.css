@@ -243,6 +243,7 @@ hr {
 }
 .customer-info form{
 	flex-direction: column;
+	margin-top: 1em;
 }
 .customer-info input{
 	background-color: var(--background-color-darker);
@@ -250,7 +251,14 @@ hr {
 	border-radius: 10px;
 	height: 3em;
 	border: unset;
+	border: 1px solid var(--secondary-color);
+	padding-left: 1em;
 }
+
+.customer-info input::placeholder{
+	color: var(--text-color-dark);
+}
+
 .customer-info-buttons{
 	justify-content: space-between;
 }

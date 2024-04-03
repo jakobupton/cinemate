@@ -14,7 +14,7 @@
         <h1>Add a Showtime</h1>
         <label for="movie_id">Movie</label>
         <select id="addShowTimeMovieID" name="movie_id" required>
-            <option value="" disabled selected>Select a movie</option>
+            <option class="optionPlaceholder" value="" disabled selected>Select a movie</option>
             <?php 
                 $Movies = find_all_movies();
                 foreach ($Movies as $Movie){
@@ -32,7 +32,7 @@
         <h1>Delete a movie</h1>
         <label for="movie_id">Movie</label>
         <select id="deleteMovieID" name="movie_id" required>
-            <option value="" disabled selected>Select a movie</option>
+            <option class="optionPlaceholder" value="" disabled selected>Select a movie</option>
             <?php 
                 $Movies = find_all_movies();
                 foreach ($Movies as $Movie){
@@ -46,7 +46,7 @@
         <h1>Delete a Showtime</h1>
         <label for="showtime_id">Showtime</label>
         <select id="deleteShowTimeID" name="showtime_id" required>
-            <option value="" disabled selected>Select a showtime</option>
+            <option class="optionPlaceholder" value="" disabled selected>Select a showtime</option>
             <?php 
                 $Showtimes = find_all_showtimes();
                 foreach ($Showtimes as $Showtime){

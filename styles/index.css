@@ -75,6 +75,7 @@ body{
     min-width: 50vw;
     align-items: center;
     justify-content: center;
+    overflow: none;
 }
 
 .main-content *{
@@ -121,8 +122,15 @@ body{
 .userInfo img {
     height: calc(var(--top-bar-thickness) * 0.5);
 }
+.userInfo img:hover {
+    scale: 105%;
+}
 
 #logout{
     text-decoration: none;
+    color: var(--secondary-color);
+}
+
+#logout:hover{
     color: var(--accent-color);
 }

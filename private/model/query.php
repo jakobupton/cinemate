@@ -115,13 +115,26 @@
     global $db;
     $sql1 = "DELETE FROM showtimes WHERE imdb_id = '$imdb_id'";
     $sql2 = "DELETE FROM movies WHERE imdb_id = '$imdb_id'";
+    mysqli_query($db, $sql1);
+    mysqli_query($db, $sql2);
+  }
+
+  function addUserToDB($fullName, $email, $password){
+    global $db;
+    $sql = "INSERT INTO customer (fullname, email, password) VALUES ('$fullName', '$email', '$password')";
+    $result = mysqli_query($db, $sql);
+  }
+
+  function verifyUser($email, $password){
+    global $db;
+    $sql = "SELECT * FROM customer WHERE email = '$email' AND password = '$password'";
     ini_set('display_errors', '1');
     ini_set('display_startup_errors', '1');
     error_reporting(E_ALL);
     ini_set('log_errors',1);
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-    mysqli_query($db, $sql1);
-    mysqli_query($db, $sql2);
+    $result = mysqli_query($db, $sql);
+    $user = mysqli_fetch_assoc($result);
+    return $user;
   }
-
 ?>

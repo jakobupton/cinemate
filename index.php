@@ -12,14 +12,28 @@
       <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
    </head>
    <body>
-      <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/cinemate/private/model/initialize.php'); ?>
+      <?php 
+         require_once($_SERVER['DOCUMENT_ROOT'] . '/cinemate/private/model/initialize.php'); 
+         if (isset($_GET['logout'])) {
+            session_destroy();
+            header("Location: /cinemate/?page=home");
+         }
+         if (!isset($_SESSION["user"])){
+            session_start();
+         }
+      ?>
       <div class="userInfo">
          <div class="user">
-            <p id="user-name">Jakob Upton</p>
-            <p id="user-email">me@jakobupton.dev</p>
-            <p id="user-role">Admin | <a id="logout" href="/">Logout</a></p>
+            <?php if (isset($_SESSION["user"])) {?>
+               <p id="user-name"><?php echo $_SESSION["user"]["fullname"]?></p>
+               <p id="user-email"><?php echo $_SESSION["user"]["email"]?></p>
+               <p id="user-role">Admin | <a id="logout" href="/cinemate/?logout">Logout</a></p>
+            <?php }else{?>
+               <p id="user-name">Not Logged In</p>
+               <p id="user-role"><a id="logout" href="/cinemate/?page=account">Log in</a></p>
+            <?php } ?>
          </div>
-         <img src="img/icons/c_logo.png" alt="user"/>
+         <a href="/cinemate/?page=account"><img src="img/icons/icon_user.png" alt="user"/></a>
       </div>
       <div class="sidebar">
          <div class="top">
@@ -52,14 +66,16 @@
                   </div>
                </a>
             </li>
-            <li>
-               <a href="/cinemate/?page=admin">
-                  <div class="sidebar-item">
-                     <img src="img/icons/icon_gear.png" alt="showtimes"/>
-                     <span class="nav-item">Admin</span>
-                  </div>
-               </a>
-            </li>
+            <?php if ($_SESSION["user"]["role"] == "admin"){?>
+               <li>
+                  <a href="/cinemate/?page=admin">
+                     <div class="sidebar-item">
+                        <img src="img/icons/icon_gear.png" alt="showtimes"/>
+                        <span class="nav-item">Admin</span>
+                     </div>
+                  </a>
+               </li>
+            <?php }?>
          </ul>
       </div>
       <div class="main-content">
@@ -77,6 +93,9 @@
                   break;
                case "admin":
                    require_once($_SERVER['DOCUMENT_ROOT'] . '/cinemate/private/view/admin.php');
+                  break;
+               case "account":
+                  require_once($_SERVER['DOCUMENT_ROOT'] . '/cinemate/private/view/account.php');
                   break;
                default:
                   require_once($_SERVER['DOCUMENT_ROOT'] . '/cinemate/private/view/home.php');
