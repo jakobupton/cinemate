@@ -128,13 +128,10 @@
   function verifyUser($email, $password){
     global $db;
     $sql = "SELECT * FROM customer WHERE email = '$email' AND password = '$password'";
-    ini_set('display_errors', '1');
-    ini_set('display_startup_errors', '1');
-    error_reporting(E_ALL);
-    ini_set('log_errors',1);
-    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     $result = mysqli_query($db, $sql);
     $user = mysqli_fetch_assoc($result);
+    //don't return the password in the session cookie
+    unset($user["password"]);
     return $user;
   }
 ?>

@@ -152,14 +152,24 @@
         </div>
         <div class="customer-info">
             <h3>Customer Details</h3>
-            <form>
-                <label for="name">Customer Name</label>
-                <input type="text" placeholder="John Smith" id="name" name="name">
-                <label for="phone">Contact Number</label>
-                <input type="tel" placeholder="012 345 6789" id="phone" name="phone">
-            </form>
+            <?php if(loggedIn()){?>
+                <form>
+                    <label for="name">Customer Name</label>
+                    <input type="text" value='<?php echo $_SESSION["user"]["fullname"]?>' id="name" name="name">
+                    <label for="email">Contact E-mail</label>
+                    <input type="email" value='<?php echo $_SESSION["user"]["email"]?>' id="email" name="email">
+                </form>
+            <?php }else{ ?>
+                <form>
+                    <label for="name">Customer Name</label>
+                    <input type="text" placeholder="John Smith" id="name" name="name">
+                    <label for="email">Contact E-mail</label>
+                    <input type="email" placeholder="cinemate@jakobupton.dev" id="email" name="email">
+                </form>
+            <?php } ?>
             <div class="customer-info-buttons">
-                <button class="btn" id="cancel">Cancel</button>
+                <!-- send user back to a list of showtimes for this movie -->
+                <button onclick="location.href='/cinemate/?page=showtimes&movie=<?php echo $Showtime['imdb_id']?>'" class="btn" id="cancel">Cancel</button>
                 <button class="btn" id="confirm">Confirm</button>
             </div>
         </div>

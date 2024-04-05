@@ -14,11 +14,13 @@
    <body>
       <?php 
          require_once($_SERVER['DOCUMENT_ROOT'] . '/cinemate/private/model/initialize.php'); 
-         if (isset($_GET['logout'])) {
+         if (isset($_GET['logout'])){
+            unset($_SESSION["user"]);
+            setcookie("PHPSESSID", "", time() - 3600, "/"); // delete the cookie to clear the session
             session_destroy();
             header("Location: /cinemate/?page=home");
          }
-         if (!isset($_SESSION["user"])){
+         if (!isset($_SESSION)){
             session_start();
          }
       ?>
@@ -27,7 +29,7 @@
             <?php if (isset($_SESSION["user"])) {?>
                <p id="user-name"><?php echo $_SESSION["user"]["fullname"]?></p>
                <p id="user-email"><?php echo $_SESSION["user"]["email"]?></p>
-               <p id="user-role">Admin | <a id="logout" href="/cinemate/?logout">Logout</a></p>
+               <p id="user-role"><?php echo ucfirst($_SESSION["user"]["role"])?> | <a id="logout" href="/cinemate/?logout">Logout</a></p>
             <?php }else{?>
                <p id="user-name">Not Logged In</p>
                <p id="user-role"><a id="logout" href="/cinemate/?page=account">Log in</a></p>
