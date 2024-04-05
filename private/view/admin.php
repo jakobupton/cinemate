@@ -28,6 +28,22 @@
         <input type="time" id="addShowTimeTime" name="time" required>   
         <button class="adminSubmitButton" id="submitAddShowtime" type="submit" onClick="addShowTimeByID();">Add Showtime</button>
     </div>
+    <div class="adminItem" id="promoteUser">
+        <h1>Promote user</h1>
+        <label for="promoteUserByID">User</label>
+        <select id="promoteUserID" name="promoteUserByID" required>
+            <option class="optionPlaceholder" value="" disabled selected>Select a user</option>
+            <?php 
+                $userList = find_all_users();
+                foreach ($userList as $user){
+                    if ($user["role"] != admin){
+                        echo "<option value='" . $user["customer_id"] . "'>" . $user["fullname"] . " - " . $user["email"] . "</option>";
+                    }
+                }
+            ?>  
+        </select>
+        <button class="adminSubmitButton" id="submitPromoteUser" type="submit" onClick="promoteUserByID();">Promote to Admin</button>
+    </div>
     <div class="adminItem" id="deleteMovie">
         <h1>Delete a movie</h1>
         <label for="movie_id">Movie</label>
@@ -56,6 +72,22 @@
             ?>
         </select>
         <button class="adminSubmitButton" id="submitDeleteShowtime" type="submit" onClick="deleteShowTimeByID();">Delete Showtime</button>
+    </div>
+    <div class="adminItem" id="demoteUser">
+        <h1>Demote user</h1>
+        <label for="demoteUserByID">User</label>
+        <select id="demoteUserID" name="demoteUserByID" required>
+            <option class="optionPlaceholder" value="" disabled selected>Select a user</option>
+            <?php 
+                $userList = find_all_users();
+                foreach ($userList as $user){
+                    if ($user["role"] == admin){
+                        echo "<option value='" . $user["customer_id"] . "'>" . $user["fullname"] . " - " . $user["email"] . "</option>";
+                    }
+                }
+            ?>  
+        </select>
+        <button class="adminSubmitButton" id="submitDemoteUser" type="submit" onClick="demoteUserByID();">Demote to User</button>
     </div>
     <script src="scripts/admin.js"></script>
 </div>

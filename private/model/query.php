@@ -151,4 +151,25 @@
     unset($user["password"]);
     return $user;
   }
+
+  function find_all_users(){
+    global $db;
+    $sql = "SELECT customer_id, fullname, email, role FROM customer";
+    $result = mysqli_query($db, $sql);
+
+    return $result;
+  }
+
+  function promoteUserByID($id){
+    global $db;
+    $sql = "UPDATE customer SET role = 'admin' WHERE customer_id = '$id'";
+    mysqli_query($db, $sql);
+  }
+
+  function demoteUserByID($id){
+    global $db;
+    $sql = "UPDATE customer SET role = 'user' WHERE customer_id = '$id'";
+    $result = mysqli_query($db, $sql);
+    return $result;
+  }
 ?>

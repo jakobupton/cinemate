@@ -45,3 +45,27 @@ function deleteMovieByID(){
     alert("api called with imdb_id=" + movie_id.value);
     location.reload();
 }
+
+function promoteUserByID(){
+    const customer_id = document.getElementById("promoteUserID");
+
+    const xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "private/controller/modify_role.php");
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("action=promote&customer_id=" + customer_id.value);
+
+    alert("api called with ?action=promote&customer_id=" + customer_id.value);
+    location.reload();
+}
+
+function demoteUserByID(){
+    const customer_id = document.getElementById("demoteUserID");
+
+    const xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "private/controller/modify_role.php");
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("action=demote&customer_id=" + customer_id.value);
+
+    alert("api called with ?action=demote&customer_id=" + customer_id.value);
+    location.reload();
+}
