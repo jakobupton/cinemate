@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 17, 2024 at 11:24 AM
--- Server version: 10.5.21-MariaDB-0+deb11u1
+-- Generation Time: Apr 04, 2024 at 10:57 PM
+-- Server version: 10.5.23-MariaDB-0+deb11u1
 -- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -30,8 +30,19 @@ SET time_zone = "+00:00";
 CREATE TABLE `customer` (
   `customer_id` int(11) NOT NULL,
   `fullname` text NOT NULL,
-  `email` text NOT NULL
+  `email` text NOT NULL,
+  `password` text NOT NULL,
+  `role` text NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`customer_id`, `fullname`, `email`, `password`, `role`) VALUES
+(1, 'Example Administrator', 'admin@jakobupton.dev', 'password', 'admin'),
+(2, 'Jakob Upton', 'me@jakobupton.dev', 'password', 'admin'),
+(12, 'Default User', 'default@jakobupton.dev', 'password', 'user');
 
 -- --------------------------------------------------------
 
@@ -54,10 +65,11 @@ CREATE TABLE `movies` (
 --
 
 INSERT INTO `movies` (`imdb_id`, `title`, `year`, `cover_path`, `genres`, `description`, `rating`) VALUES
-('tt0091042', 'Ferris Bueller\'s Day Off', '1986', 'https://m.media-amazon.com/images/M/MV5BMDA0NjZhZWUtNmI2NC00MmFjLTgwZDYtYzVjZmNhMDVmOTBkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_QL75_UX380_CR0,13,380,562_.jpg', 'comedy', 'A popular high school student, admired by his peers, decides to take a day off from school and goes to extreme lengths to pull it off, to the chagrin of his Dean, who\'ll do anything to stop him.', 7.8),
-('tt0816692', 'Interstellar', '2014', 'https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UY3600_.jpg', 'adventure,drama,sci-fi', 'In Earth\'s future, a global crop blight and second Dust Bowl are slowly rendering the planet uninhabitable. Professor Brand (Michael Caine), a brilliant NASA physicist, is working on plans to save mankind by transporting Earth\'s population to a new home via a wormhole. But first, Brand must send former NASA pilot Cooper (Matthew McConaughey) and a team of researchers through the wormhole and across the galaxy to find out which of three planets could be mankind\'s new home.', 8.7),
-('tt15239678', 'Dune: Part Two', '2024', 'https://m.media-amazon.com/images/M/MV5BN2QyZGU4ZDctOWMzMy00NTc5LThlOGQtODhmNDI1NmY5YzAwXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_QL75_UX380_CR0,0,380,562_.jpg', 'Action,Adventure,Drama', 'Paul Atreides unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe, he endeavors to prevent a terrible future only he can foresee.', 8.9),
-('tt4633694', 'Spider-Man: Into the Spider-Verse', '2018', 'https://m.media-amazon.com/images/M/MV5BMjMwNDkxMTgzOF5BMl5BanBnXkFtZTgwNTkwNTQ3NjM@._V1_QL75_UX380_CR0,1,380,562_.jpg', 'animation,action,adventure', 'Bitten by a radioactive spider in the subway, Brooklyn teenager Miles Morales suddenly develops mysterious powers that transform him into the one and only Spider-Man. When he meets Peter Parker, he soon realizes that there are many others who share his special, high-flying talents. Miles must now use his newfound skills to battle the evil Kingpin, a hulking madman who can open portals to other universes and pull different versions of Spider-Man into our world.', 8.4);
+('tt0091042', 'Ferris Bueller&#39;s Day Off', '1986', 'https://m.media-amazon.com/images/M/MV5BMDA0NjZhZWUtNmI2NC00MmFjLTgwZDYtYzVjZmNhMDVmOTBkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg', 'Comedy', 'A popular high school student, admired by his peers, decides to take a day off from school and goes to extreme lengths to pull it off, to the chagrin of his Dean, who&#39;ll do anything to stop him.', 7.8),
+('tt0120737', 'The Lord of the Rings: The Fellowship of the Ring', '2001', 'https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_SX300.jpg', 'Action, Adventure, Drama', 'A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.', 8.9),
+('tt0816692', 'Interstellar', '2014', 'https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg', 'Adventure, Drama, Sci-Fi', 'When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans.', 8.7),
+('tt0910970', 'WALL·E', '2008', 'https://m.media-amazon.com/images/M/MV5BMjExMTg5OTU0NF5BMl5BanBnXkFtZTcwMjMxMzMzMw@@._V1_SX300.jpg', 'Animation, Adventure, Family', 'In the distant future, a small waste-collecting robot inadvertently embarks on a space journey that will ultimately decide the fate of mankind.', 8.4),
+('tt9362722', 'Spider-Man: Across the Spider-Verse', '2023', 'https://m.media-amazon.com/images/M/MV5BMzI0NmVkMjEtYmY4MS00ZDMxLTlkZmEtMzU4MDQxYTMzMjU2XkEyXkFqcGdeQXVyMzQ0MzA0NTM@._V1_SX300.jpg', 'Animation, Action, Adventure', 'Miles Morales catapults across the multiverse, where he encounters a team of Spider-People charged with protecting its very existence. When the heroes clash on how to handle a new threat, Miles must redefine what it means to be a ...', 8.6);
 
 -- --------------------------------------------------------
 
@@ -68,8 +80,8 @@ INSERT INTO `movies` (`imdb_id`, `title`, `year`, `cover_path`, `genres`, `descr
 CREATE TABLE `showtimes` (
   `show_id` int(11) NOT NULL,
   `imdb_id` varchar(25) NOT NULL,
-  `time` text NOT NULL,
-  `date` text NOT NULL
+  `time` time NOT NULL,
+  `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -77,12 +89,14 @@ CREATE TABLE `showtimes` (
 --
 
 INSERT INTO `showtimes` (`show_id`, `imdb_id`, `time`, `date`) VALUES
-(1, 'tt0091042', '10:30pm', 'March 19th, 2024'),
-(2, 'tt0091042', '8:30pm', 'March 20th, 2024'),
-(3, 'tt15239678', '6:30pm', 'March 19th, 2024'),
-(4, 'tt0816692', '3:30pm', 'March 18th, 2024'),
-(5, 'tt0816692', '7:00pm', 'March 21st, 2024'),
-(6, 'tt4633694', '8:30pm', 'March 20th, 2024');
+(10, 'tt9362722', '18:30:00', '2024-04-06'),
+(11, 'tt9362722', '20:30:00', '2024-04-06'),
+(12, 'tt0816692', '17:00:00', '2024-04-06'),
+(13, 'tt0816692', '19:00:00', '2024-04-06'),
+(18, 'tt0091042', '12:30:00', '2024-04-06'),
+(19, 'tt0091042', '16:30:00', '2024-04-06'),
+(22, 'tt0910970', '18:30:00', '2024-04-12'),
+(23, 'tt0120737', '20:00:00', '2024-04-21');
 
 -- --------------------------------------------------------
 
@@ -117,13 +131,31 @@ ALTER TABLE `movies`
 -- Indexes for table `showtimes`
 --
 ALTER TABLE `showtimes`
-  ADD PRIMARY KEY (`show_id`);
+  ADD PRIMARY KEY (`show_id`),
+  ADD UNIQUE KEY `show_id` (`show_id`),
+  ADD KEY `show_id_2` (`show_id`);
 
 --
 -- Indexes for table `tickets`
 --
 ALTER TABLE `tickets`
   ADD PRIMARY KEY (`ticket_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `customer`
+--
+ALTER TABLE `customer`
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `showtimes`
+--
+ALTER TABLE `showtimes`
+  MODIFY `show_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
