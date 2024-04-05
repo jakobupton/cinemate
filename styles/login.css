@@ -3,11 +3,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
-
-.content h1{
+h1{
     font-size: 2em;
 }
-.content input{
+input{
     padding: 0.5em;
     width: 100%;
     border: none;
@@ -59,4 +58,10 @@ form{
 .success{
     color: var(--accent-color);
     margin-top: 1em;
+}
+
+.modifyUserContent{
+    background-color: var(--background-color);
+    padding: 2em;
+    border-radius: var(--border-radius)
 }

@@ -20,6 +20,10 @@
             if ($_GET["success"] == "login"){
                 echo "<p class='success'>Logged in successfully.</p>";
             }
+            if ($_GET["success"] == "modified"){
+                echo "<p class='success'>Account modified successfully</p><br>";
+                echo "<p class='success'>Please log in again</p>";
+            }
         ?>
     </div>
     <div class="userAccount" id="signup">

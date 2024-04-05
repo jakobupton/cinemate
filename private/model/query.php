@@ -134,4 +134,21 @@
     unset($user["password"]);
     return $user;
   }
+
+  function changeUserInfo($id, $email, $password, $fullname){
+    global $db;
+    $sql = "UPDATE customer SET fullname = '$fullname', email = '$email', password = '$password' WHERE customer_id = $id";
+    $result = mysqli_query($db, $sql);
+    return $result;
+  }
+
+  function fetchAccountById($id){
+    global $db;
+    $sql = "SELECT * FROM customer WHERE customer_id = '$id'";
+    $result = mysqli_query($db, $sql);
+    $user = mysqli_fetch_assoc($result);
+    //don't return the password in the session cookie
+    unset($user["password"]);
+    return $user;
+  }
 ?>
